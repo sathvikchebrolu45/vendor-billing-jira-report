@@ -49,9 +49,15 @@ One script, run locally. No Copilot/Agent Builder setup required.
 
 This runs the full pipeline (Excel + JIRA + reconciliation) with the default
 date range — **static start of August 1 of the current year, through today**
-— and writes a timestamped CSV into `reports/` inside this repo (git-ignored,
-since reports contain real employee data). Re-run it any time to get an
+— writes a timestamped CSV into `reports/` inside this repo, and **commits
+and pushes it to git automatically**. Re-run it any time to get an
 up-to-date report through "today".
+
+Set `NO_GIT=1` to only write the file locally without committing/pushing:
+
+```bash
+NO_GIT=1 ./run_report.sh
+```
 
 Override the date range via env vars if needed:
 

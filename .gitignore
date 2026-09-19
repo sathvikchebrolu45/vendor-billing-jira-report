@@ -1,0 +1,9 @@
+# Generated reports and local artifacts - not committed
+vendor_jira_report_*.csv
+jira_export_*.xlsx
+*.pyc
+__pycache__/
+.DS_Store
+
+# Contains real employee names/hours - keep local only, never commit
+Maersk MIDAS.xlsx

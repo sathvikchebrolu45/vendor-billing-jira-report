@@ -41,6 +41,32 @@ One script, run locally. No Copilot/Agent Builder setup required.
 
 ## Usage
 
+### One-command pipeline (recommended)
+
+```bash
+./run_report.sh
+```
+
+This runs the full pipeline (Excel + JIRA + reconciliation) with the default
+date range — **static start of August 1 of the current year, through today**
+— and writes a timestamped CSV into `reports/` inside this repo (git-ignored,
+since reports contain real employee data). Re-run it any time to get an
+up-to-date report through "today".
+
+Override the date range via env vars if needed:
+
+```bash
+START_DATE=2026-08-01 END_DATE=2026-09-15 ./run_report.sh
+```
+
+Any extra flags are passed straight through to the Python script, e.g.:
+
+```bash
+./run_report.sh --project MID1 --excel "/path/to/Maersk MIDAS.xlsx"
+```
+
+### Running the Python script directly
+
 ```bash
 python3 generate_vendor_jira_report.py \
     --excel "/path/to/Maersk MIDAS.xlsx" \
